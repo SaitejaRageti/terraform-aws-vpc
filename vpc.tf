@@ -99,7 +99,7 @@ resource "aws_route_table" "public" {
   tags =  merge(
     local.common_tags,
     {
-        Name = "${var.project}-${var.environment}"
+        Name = "${var.project}-${var.environment}-public"
     }
   )
 }
@@ -110,7 +110,7 @@ resource "aws_route_table" "private" {
   tags =  merge(
     local.common_tags,
     {
-        Name = "${var.project}-${var.environment}"
+        Name = "${var.project}-${var.environment}-private"
     }
   )
 }
@@ -121,7 +121,7 @@ resource "aws_route_table" "database" {
   tags =  merge(
     local.common_tags,
     {
-        Name = "${var.project}-${var.environment}"
+        Name = "${var.project}-${var.environment}-database"
     }
   )
 }
@@ -164,3 +164,4 @@ resource "aws_route_table_association" "database" {
   subnet_id      = aws_subnet.database[count.index].id
   route_table_id = aws_route_table.database.id
 }
+

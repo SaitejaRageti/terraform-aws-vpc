@@ -22,3 +22,8 @@ variable "database_subnets_cidr" {
     type = list(string)
   
 }
+
+variable "is_peering_required" {
+    default = false
+}
+
